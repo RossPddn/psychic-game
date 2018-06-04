@@ -6,29 +6,38 @@ var randomLetter = alphabet[randomnum];
 console.log('random letter is ' + randomLetter)
 var wins = 0;
 var lose = 0;
-var attempts = 0;
+var attempts = 9;
+
 function UserKey(event){
  var key = event.key;
  
  if(key == randomLetter){
      wins++;
+     attempts = 9;
     
     console.log('win');
     document.getElementById("wins").innerHTML = wins;
+    document.getElementById('GuessesLeft').innerHTML = attempts;
+
 
  }
  else{
      console.log('loss')
-     lose++
+    
+     attempts--
      document.getElementById("wins").innerHTML = wins;
- }
- 
- console.log(wins);
- console.log(lose);
+     document.getElementById('GuessesLeft').innerHTML = attempts;
+     if(attempts == 0){
+        lose++;
+        document.getElementById('losses').innerHTML = lose;
 
+     }
+ }
 
 }
+
  
 //document.onkeyup = function; this runs the function when the user presses the keyboard
 //var key = event.key; saves the users key
+
 document.onkeyup = UserKey;
