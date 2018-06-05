@@ -7,13 +7,18 @@ console.log('random letter is ' + randomLetter)
 var wins = 0;
 var lose = 0;
 var attempts = 9;
+var guesses = [];
 
 function UserKey(event){
  var key = event.key;
  
+
+ 
+ 
  if(key == randomLetter){
      wins++;
      attempts = 9;
+     guesses = [];
     
     console.log('win');
     document.getElementById("wins").innerHTML = wins;
@@ -26,6 +31,8 @@ function UserKey(event){
  }
  else{
      console.log('loss')
+     guesses.push(key);
+     document.getElementById('UserGuesses').innerHTML = guesses;
     
      attempts--;
      if(attempts == 0){
@@ -48,8 +55,10 @@ function UserKey(event){
 
 }
 
+
  
 //document.onkeyup = function; this runs the function when the user presses the keyboard
 //var key = event.key; saves the users key
 
 document.onkeyup = UserKey;
+
