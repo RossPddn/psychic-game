@@ -33,10 +33,12 @@ function UserKey(event){
      console.log('loss')
      guesses.push(key);
      document.getElementById('UserGuesses').innerHTML = guesses;
+     
     
      attempts--;
      if(attempts == 0){
          attempts = 9;
+         guesses=[];
          lose++;
          document.getElementById('losses').innerHTML = lose;
          randomnum= Math.round((Math.random()*26));
