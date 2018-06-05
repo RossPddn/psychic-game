@@ -18,20 +18,32 @@ function UserKey(event){
     console.log('win');
     document.getElementById("wins").innerHTML = wins;
     document.getElementById('GuessesLeft').innerHTML = attempts;
+    randomnum= Math.round((Math.random()*26));
+         randomLetter = alphabet[randomnum];
+         console.log('random letter is ' + randomLetter);
 
 
  }
  else{
      console.log('loss')
     
-     attempts--
+     attempts--;
+     if(attempts == 0){
+         attempts = 9;
+         lose++;
+         document.getElementById('losses').innerHTML = lose;
+         randomnum= Math.round((Math.random()*26));
+         randomLetter = alphabet[randomnum];
+         console.log('random letter is ' + randomLetter);
+     }
      document.getElementById("wins").innerHTML = wins;
      document.getElementById('GuessesLeft').innerHTML = attempts;
-     if(attempts == 0){
-        lose++;
-        document.getElementById('losses').innerHTML = lose;
+//     if(attempts == 0){
+//        lose++;
+//        document.getElementById('losses').innerHTML = lose;
 
-     }
+//     }
+   
  }
 
 }
